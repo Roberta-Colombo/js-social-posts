@@ -129,12 +129,10 @@ function printPost(){
         likesCounter.classList.add('likes__counter');
         likesDiv.append(likesCounter);
         likesCounter.innerHTML = `
-        Piace a <b id="like-counter-1" class="js-likes-counter">${userPost.likes}</b> persone      
+        Piace a <b id="like-counter-${userPost.id}" class="js-likes-counter">${userPost.likes}</b> persone      
         `
     })
-
 }
-
 printPost();
 
 const likeBtn = document.querySelectorAll('.js-like-button');
@@ -142,24 +140,24 @@ let newLikes = 0
 const likedPosts = []
 const likesCounter = document.querySelectorAll('.js-likes-counter');
 
-// likeBtn.addEventListener('click', function(){
-// likeBtn.classList.add('like-button--liked');
 
-// newLikes++
-// console.log(newLikes);
-// })
-
-
-likeBtn.dataset.postid;
-console.log(postid);
-
-likeBtn.forEach((el) => {
+likeBtn.forEach((el, i) => {
     el.addEventListener('click', function(){
-    el.classList.add('like-button--liked'); 
-    
+    el.classList.add('like-button--liked');
 
-    newLikes++;
-    console.log(newLikes);
-    })
+    likesCounter[i].innerHTML = (posts[i].likes++) 
+    newLikes++
+
+    const btnID = likeBtn[i].dataset.postid
+    const likedPost = btnID
+    console.log(likedPost) 
+     
+    for(let i = 0; i < likeBtn.length; i++){
+        if(!likedPosts.includes(likedPost)){
+            likedPosts.push(likedPost) 
+        }
+        console.log(likedPosts)
+    }   
+})
 })
 
