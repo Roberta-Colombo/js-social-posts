@@ -132,29 +132,34 @@ function printPost(){
         Piace a <b id="like-counter-1" class="js-likes-counter">${userPost.likes}</b> persone      
         `
     })
+
 }
 
 printPost();
 
-const likeBtn = document.querySelector('.js-like-button');
+const likeBtn = document.querySelectorAll('.js-like-button');
 let newLikes = 0
 const likedPosts = []
 const likesCounter = document.querySelectorAll('.js-likes-counter');
 
-likeBtn.addEventListener('click', function(){
-likeBtn.classList.add('like-button--liked');
+// likeBtn.addEventListener('click', function(){
+// likeBtn.classList.add('like-button--liked');
 
 // newLikes++
 // console.log(newLikes);
-})
+// })
+
 
 likeBtn.dataset.postid;
 console.log(postid);
 
+likeBtn.forEach((el) => {
+    el.addEventListener('click', function(){
+    el.classList.add('like-button--liked'); 
+    
 
+    newLikes++;
+    console.log(newLikes);
+    })
+})
 
-
-//     posts.forEach((userPost, index) => {
-//         userPost.likes++
-//         console.log(userPost.likes);
-//    })
