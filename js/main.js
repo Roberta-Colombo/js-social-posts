@@ -133,11 +133,28 @@ function printPost(){
         `
     })
 }
+
 printPost();
 
 const likeBtn = document.querySelector('.js-like-button');
+let newLikes = 0
+const likedPosts = []
+const likesCounter = document.querySelectorAll('.js-likes-counter');
 
 likeBtn.addEventListener('click', function(){
-    likeBtn.classList.add('like-button--liked');
+likeBtn.classList.add('like-button--liked');
+
+// newLikes++
+// console.log(newLikes);
 })
-                  
+
+likeBtn.dataset.postid;
+console.log(postid);
+
+
+
+
+//     posts.forEach((userPost, index) => {
+//         userPost.likes++
+//         console.log(userPost.likes);
+//    })
